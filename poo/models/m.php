@@ -22,7 +22,7 @@ class Usuario{
         return "{$this->tipo}";
     }
 
-    public function definirSenha(string $senha): void,{
+    public function definirSenha(string $senha): void{
         $this->senha = password_hash($senha, PASSWORD_BCRYPT);   
     }
 
@@ -44,7 +44,7 @@ class Professor extends Usuario{
 class Aluno extends Usuario{
     public int $xp_total = 0;
 
-    public function __construct(int $id, string $nome, string $email, int $xp_total){
+    public function __construct(int $id, string $nome, string $email, int $xp_total = 0){
         parent::__construct($id, $nome, $email, 'aluno');
         $this->xp_total = $xp_total;
     }
